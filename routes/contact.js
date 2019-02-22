@@ -1,22 +1,13 @@
-
-const express = require('express');
-
+'use strict';
+var express = require('express');
+var Contact = require('../models/contact');
 var router = express.Router();
-const Contact = require('../models/contact');
-const app = express();
-app.get('/contact', (req, res) => {
-
-        if (err) {
-                return res.status(500).json({
-                    ok: false,
-                    err
-                });
-            }
-
-            res.json({
-                ok: true,
-                cuentas
-            });
-
-
+router.route('/')
+.get(function(req, res) {
+Contact
+.fetchAll()
+.then(function(contacts) {
+res.json({ contacts });
 });
+});
+module.exports = router;
