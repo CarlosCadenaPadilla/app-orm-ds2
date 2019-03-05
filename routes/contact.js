@@ -9,7 +9,7 @@ Contact
 .then(function(contacts) {
 res.json({ contacts });
 });
-});
+
 .post(function(req, res) {
     new Contact({
       firstName: req.body.firstName,
@@ -20,6 +20,7 @@ res.json({ contacts });
       .then(function(saved) {
         res.json({ saved });
       });
+  });
   });
 
 router.route('/:id')
