@@ -9,7 +9,8 @@ Contact
 .then(function(contacts) {
 res.json({ contacts });
 });
-
+});
+router.route('/')
 .post(function(req, res) {
     new Contact({
       firstName: req.body.firstName,
@@ -21,7 +22,7 @@ res.json({ contacts });
         res.json({ saved });
       });
   });
-  });
+  
 
 router.route('/:id')
   .put(function(req, res) {
@@ -41,10 +42,7 @@ router.route('/:id')
       });
   });
   
- router.route('/:id')
-  .put(function(req, res) {
-    ...
-  })
+router.route('/:id')
   .delete(function(req, res) {
     Contact
       .where('id', req.params.id)
